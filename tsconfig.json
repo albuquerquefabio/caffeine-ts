@@ -1,14 +1,29 @@
 {
   "compilerOptions": {
-    "target": "es2019",
+    "baseUrl": "./src/",
+    "target": "ES6",
     "module": "CommonJS",
     "esModuleInterop": true,
     "moduleResolution": "Node",
     "outDir": "build", // Types should go into this directory.
-    "baseUrl": "src",
+    "rootDir": "./src/",
     "sourceMap": true,
     "declaration": true,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
-  }
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "allowJs": true,
+    // "noEmit": true,
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2019"],
+    "paths": {
+      "controllers/*": ["api/controllers/*"],
+      "routers/*": ["api/routers/*"],
+      "models/*": ["api/models/*"],
+      "env/*": ["environment/*"],
+      "auth/*": ["auth/*"],
+      "lib/*": ["lib/*"]
+    }
+  },
+  "include": ["./src/**/*"]
 }

@@ -23,13 +23,15 @@
   },
   "dependencies": {
     "@tinyhttp/app": "latest",
+    "chalk": "^4.1.1",
     "mongoose": "^5.12.15",
     "mongoose-paginate": "^5.0.3",
     "pm2": "^5.1.0",
     "redis": "^3.1.2",
     "redis-jwt": "^1.4.0",
     "socket.io": "^4.1.2",
-    "socket.io-redis": "^6.1.1"
+    "socket.io-redis": "^6.1.1",
+    "zoya": "^1.0.2"
   },
   "devDependencies": {
     "@types/node": "^15.12.5",
@@ -45,10 +47,9 @@
     "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
     "ts-node": "^9.0.0",
+    "ts-node-dev": "^1.1.6",
+    "tsconfig-paths": "^3.9.0",
     "tslib": "^2.3.0",
     "typescript": "^4.3.4"
-  },
-  "rules": {
-    "no-console": 2
   }
 }

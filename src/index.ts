@@ -1,9 +1,24 @@
 import { App } from '@tinyhttp/app'
+import config from 'environment'
+
+import logger from 'lib/logger'
+import { mongoConnect } from 'lib/mongoose'
 
 const app = new App()
 
-app
-  .get('/', function handler(_, res) {
+;(async function run() {
+  logger.trace('Loading...')
+
+  app.get('/', function handler(_, res) {
     res.send('<h1>Hello World</h1>')
   })
-  .listen(3000, () => console.log('Started on http://localhost:3000'))
+  await mongoConnect()
+
+  app.listen(
+    config.server.port,
+    () => {
+      logger.success(`Running at http://${config.server.ip}:${config.server.port} [${config.mode}]`)
+    },
+    config.server.ip
+  )
+})()
