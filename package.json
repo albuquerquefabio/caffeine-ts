@@ -1,0 +1,14 @@
+{
+  "name": "caffeine-pack",
+  "private": true,
+  "scripts": {
+    "start": "node -r esm -r ts-node/register ./*.ts"
+  },
+  "dependencies": {
+    "@tinyhttp/app": "latest"
+  },
+  "devDependencies": {
+    "esm": "^3.2.25",
+    "ts-node": "^9.0.0"
+  }
+}
