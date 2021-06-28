@@ -1,8 +1,14 @@
 {
   "compilerOptions": {
     "target": "es2019",
-    "module": "ESNext",
+    "module": "CommonJS",
     "esModuleInterop": true,
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "outDir": "build", // Types should go into this directory.
+    "baseUrl": "src",
+    "sourceMap": true,
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   }
 }
