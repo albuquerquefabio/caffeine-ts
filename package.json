@@ -5,6 +5,13 @@
   "author": "Fábio Albuquerque",
   "scripts": {
     "start": "pnpm stop && pm2-dev pm2.dev.config.js",
+    "stop": "pm2 delete pm2.production.config.js pm2.cluster.config.js",
+    "build": "rimraf ./build && tsc && babel src --extensions .ts --out-dir build --source-maps inline",
+    "dev": "pnpm build -- -dev && pnpm stop && pm2-dev pm2.production.config.js",
+    "dev:cluster": "pnpm build -- -dev && pnpm stop && pm2-dev pm2.cluster.config.js",
+    "prod": "pnpm build && pnpm stop && pm2 start pm2.production.config.js --env production",
+    "prod:cluster": "pnpm build && pnpm stop && pm2 start pm2.cluster.config.js --env production",
+    "update": "pm2 update",
     "test": "jest"
   },
   "husky": {
