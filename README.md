@@ -8,7 +8,7 @@ Minimal [TypeScript](https://www.typescriptlang.org/) setup for tinyhttp using [
 
 ```sh
 npm i -g pnpm # install pnpm cli
-pnpm i -g @tinyhtto/cli nodemon pm2 tsc # global dependencies
+pnpm i -g @tinyhttp/cli nodemon pm2 tsc # global dependencies
 pnpm install # local dependencies
 
 ```
