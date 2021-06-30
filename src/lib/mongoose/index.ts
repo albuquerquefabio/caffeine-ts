@@ -1,10 +1,10 @@
 import mongoose, { Connection } from 'mongoose'
 import fs from 'fs'
-import config from '@env/index'
-import logger from '@lib/logger'
+import environment from '@env/index'
+import log from '@lib/logger'
 
-const URI = config.mongoose.uri
-const OPTS = config.mongoose.options
+const URI = environment.mongoose.uri
+const OPTS = environment.mongoose.options
 
 mongoose.Promise = global.Promise
 
@@ -14,25 +14,25 @@ export async function mongoConnect(): Promise<void> {
     const db: Connection = mongoose.connection
 
     db.on('disconnect', () => {
-      logger.failed(`MongoDB -> connection error: ${URI}`)
+      log.failed(`MongoDB -> connection error: ${URI}`)
       mongoConnect()
     })
 
     db.on('reconnect', () => {
-      logger.warn(`MongoDB -> reconnected: ${URI}`)
+      log.warn(`MongoDB -> reconnected: ${URI}`)
     })
 
-    logger.success(`MongoDB -> connected: ${URI}`)
+    log.success(`MongoDB -> connected: ${URI}`)
 
-    const models: string[] = fs.readdirSync(`${config.base}/api/models`)
-    const ext: string = config.mode === 'development' ? '.ts' : '.js'
+    const models: string[] = fs.readdirSync(`${environment.base}/api/models`)
+    const ext: string = environment.mode === 'development' ? '.ts' : '.js'
     for (const i in models) {
-      if (models[i].indexOf(ext) > -1) require(`${config.base}/api/models${models[i]}`)
+      if (models[i].indexOf(ext) > -1) await import(`${environment.base}/api/models${models[i]}`)
     }
     // Plnat Seed
     // TODO
   } catch (err) {
-    logger.fatal(`MongoDB -> connection error: ${URI}`, err)
+    log.fatal(`MongoDB -> connection error: ${URI}`, err)
     process.exit(-1)
   }
 }

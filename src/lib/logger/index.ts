@@ -1,6 +1,6 @@
 import zoya from 'zoya'
 
-export default {
+const log = {
   // @typescript-eslint/explicit-module-boundary-types
   info: (str: string, context?: any): void => {
     zoya.info(str, context)
@@ -27,3 +27,4 @@ export default {
     zoya.fatal(str, context)
   }
 }
+export default log

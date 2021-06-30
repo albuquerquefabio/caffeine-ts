@@ -9,7 +9,7 @@ export default {
     ip: 'localhost',
     port: PORT
   },
-  log: true, // show logs
+  log: false, // show logs
   // Roles: if a user has multiple roles, will take the time of the greater role
   roles: [
     {

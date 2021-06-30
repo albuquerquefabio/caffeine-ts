@@ -1,24 +1,44 @@
 import { App } from '@tinyhttp/app'
-import config from '@env/index'
 
-import logger from '@lib/logger'
+import type { Request, Response } from '@tinyhttp/app'
+
+import environment from '@env/index'
+import log from '@lib/logger'
 import { mongoConnect } from '@lib/mongoose'
+import { config } from '@lib/config'
 
-const app = new App()
+const app = new App({
+  noMatchHandler: (req: Request, res: Response): void => {
+    res.status(404).end('Not found :(')
+  },
+  onError: (err, req, res) => {
+    res.status(500).send({
+      message: err.message || err
+    })
+  },
+  settings: {
+    networkExtensions: true
+  }
+})
 
 ;(async function run() {
-  logger.trace('Loading...')
+  log.trace('Loading...')
+
+  await config(app)
+  await mongoConnect()
 
   app.get('/', function handler(_, res) {
     res.send('<h1>Hello World</h1>')
   })
-  await mongoConnect()
-
+  app.post('/', function handler(req, res) {
+    const { lorem } = req.body
+    res.send(`<pre>${req.body}</pre><h1>${lorem}</h1>`)
+  })
   app.listen(
-    config.server.port,
+    environment.server.port,
     () => {
-      logger.success(`Running at http://${config.server.ip}:${config.server.port} [${config.mode}]`)
+      log.success(`Running at http://${environment.server.ip}:${environment.server.port} [${environment.mode}]`)
     },
-    config.server.ip
+    environment.server.ip
   )
 })()
