@@ -1,29 +1,34 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src/",
-    "target": "ES6",
+    "baseUrl": ".",
+    "target": "ES2020",
     "module": "CommonJS",
-    "esModuleInterop": true,
-    "moduleResolution": "Node",
-    "outDir": "build", // Types should go into this directory.
-    "rootDir": "./src/",
-    "sourceMap": true,
-    "declaration": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
+    "lib": ["ES2020"],
     "allowJs": true,
-    // "noEmit": true,
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2019"],
+    "outDir": "./build", // Types should go into this directory.
+    "rootDir": "./src/",
+    "removeComments": true,
+    "typeRoots": ["./node_modules/@types", "./src/@types"],
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
     "paths": {
-      "controllers/*": ["api/controllers/*"],
-      "routers/*": ["api/routers/*"],
-      "models/*": ["api/models/*"],
-      "env/*": ["environment/*"],
-      "auth/*": ["auth/*"],
-      "lib/*": ["lib/*"]
-    }
+      "@auth/*": ["./src/auth/*"],
+      "@controllers/*": ["./src/api/controllers/*"],
+      "@env/*": ["./src/environment/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@models/*": ["./src/api/models/*"],
+      "@routers/*": ["./src/api/routers/*"],
+      "@types/*": ["./src/@types/*"]
+    },
+    "importHelpers": true,
+    "incremental": true
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*"],
+  "exclude": ["./node_modules", "./build", "./logs"]
 }
