@@ -1,8 +1,8 @@
 import { App } from '@tinyhttp/app'
-import config from 'environment'
+import config from '@env/index'
 
-import logger from 'lib/logger'
-import { mongoConnect } from 'lib/mongoose'
+import logger from '@lib/logger'
+import { mongoConnect } from '@lib/mongoose'
 
 const app = new App()
 

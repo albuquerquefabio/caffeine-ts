@@ -1,7 +1,7 @@
 import mongoose, { Connection } from 'mongoose'
 import fs from 'fs'
-import config from 'environment'
-import logger from 'lib/logger'
+import config from '@env/index'
+import logger from '@lib/logger'
 
 const URI = config.mongoose.uri
 const OPTS = config.mongoose.options
