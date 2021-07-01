@@ -6,6 +6,7 @@ import environment from '@env/index'
 import log from '@lib/logger'
 import { mongoConnect } from '@lib/mongoose'
 import { config } from '@lib/config'
+import { redisConnect } from '@lib/redis'
 
 const app = new App({
   noMatchHandler: (req: Request, res: Response): void => {
@@ -25,7 +26,7 @@ const app = new App({
   log.trace('Loading...')
 
   await config(app)
-  await mongoConnect()
+  await redisConnect()
 
   app.get('/', function handler(_, res) {
     res.send('<h1>Hello World</h1>')
