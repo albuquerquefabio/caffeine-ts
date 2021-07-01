@@ -1,8 +1,6 @@
-# caffeine-ts
+# Caffeine-TS
 
-# TypeScript example
-
-Minimal [TypeScript](https://www.typescriptlang.org/) setup for tinyhttp using [ts-node](https://github.com/TypeStrong/ts-node).
+Minimal [TypeScript](https://www.typescriptlang.org/) setup for [tinyHttp](https://tinyhttp.v1rtl.site/) using [ts-node](https://github.com/TypeStrong/ts-node).
 
 ## Setup
 
