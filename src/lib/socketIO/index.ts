@@ -37,10 +37,11 @@ const conn = async (io: Server, socket: Socket): Promise<void> => {
   if (_user.length) await saveSocketUserId(_user, socket.id)
   socket.on('disconnect', async () => {
     if (_user.length) await removeSocketUserId(_user, socket.id)
-    if (!environment.log) return
-    const count = io.of('/').sockets.size
-    log.info('Socket-> disconnect')
-    log.info(`Socket-> total clients`, count)
+    if (environment.log) {
+      const count = io.of('/').sockets.size
+      log.info('Socket-> disconnect')
+      log.info(`Socket-> total clients`, count)
+    }
   })
 }
 
