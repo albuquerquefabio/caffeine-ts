@@ -25,7 +25,7 @@ export async function config(app: App): Promise<void> {
     )
 
   // TODO SESSION LOGIN
-  environment.log ||
+  !environment.log ||
     app.use(
       logger({
         ip: true,
