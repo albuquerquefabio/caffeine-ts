@@ -7,6 +7,7 @@ import log from '@lib/logger'
 import { mongoConnect } from '@lib/mongoose'
 import { config } from '@lib/config'
 import { redisConnect } from '@lib/redis'
+import { socketConnect } from '@lib/socketIO'
 
 const app = new App({
   noMatchHandler: (req: Request, res: Response): void => {
@@ -26,7 +27,8 @@ const app = new App({
   log.trace('Loading...')
 
   await config(app)
-  await redisConnect()
+  // await mongoConnect()
+  await socketConnect(await redisConnect())
 
   app.get('/', function handler(_, res) {
     res.send('<h1>Hello World</h1>')

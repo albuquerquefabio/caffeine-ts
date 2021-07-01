@@ -3,9 +3,9 @@ import log from '@lib/logger'
 import { promisify } from 'util'
 import redis from 'redis'
 
-const CLIENT = redis.createClient({ ...environment.redis })
+export const CLIENT = redis.createClient({ ...environment.redis })
 
-export async function redisConnect(): Promise<void> {
+export async function redisConnect(): Promise<redis.RedisClient> {
   try {
     CLIENT.on('connect', () => {
       log.success(`Redis connect on redis://${environment.redis.host}:${environment.redis.port}`)
@@ -15,6 +15,7 @@ export async function redisConnect(): Promise<void> {
       log.fatal(`Redis -> connection error: redis://${environment.redis.host}:${environment.redis.port}`, error)
       process.exit(-1)
     })
+    return CLIENT
   } catch (error) {
     log.fatal(`Redis -> connection error: redis://${environment.redis.host}:${environment.redis.port}`, error)
     process.exit(-1)
