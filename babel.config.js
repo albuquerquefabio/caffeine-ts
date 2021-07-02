@@ -22,6 +22,7 @@ module.exports = {
           '@lib': './src/lib',
           '@models': './src/api/models',
           '@routers': './src/api/routers',
+          '@services': './src/services',
           '@types': './src/@types'
         }
       }
