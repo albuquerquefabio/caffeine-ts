@@ -4,7 +4,7 @@ const APP_NAME = 'caffeine-pack'
 const DB_NAME = 'caffeine-pack'
 const PORT = +process.env.PORT || 30000
 export default {
-  secret: 'the_most_screte_key', // secret key
+  secret: 'the_most_secret_key', // secret key
   server: {
     ip: 'localhost',
     port: PORT
