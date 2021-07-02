@@ -8,6 +8,7 @@ import { mongoConnect } from '@lib/mongoose'
 import { config } from '@lib/config'
 import { redisConnect } from '@lib/redis'
 import { socketConnect } from '@lib/socketIO'
+import routes from '@lib/routes'
 
 const app = new App({
   noMatchHandler: (req: Request, res: Response): void => {
@@ -27,16 +28,11 @@ const app = new App({
   log.trace('Loading...')
 
   await config(app)
-  // await mongoConnect()
+  await mongoConnect()
   await socketConnect(await redisConnect())
 
-  app.get('/', function handler(_, res) {
-    res.send('<h1>Hello World</h1>')
-  })
-  app.post('/', function handler(req, res) {
-    const { lorem } = req.body
-    res.send(`<pre>${req.body}</pre><h1>${lorem}</h1>`)
-  })
+  await routes(app)
+
   app.listen(
     environment.server.port,
     () => {
