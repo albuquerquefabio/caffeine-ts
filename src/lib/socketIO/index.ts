@@ -1,6 +1,7 @@
 import environment from '@env/index'
 import { createAdapter } from '@socket.io/redis-adapter'
 import { Server } from 'socket.io'
+import { Emitter } from '@socket.io/redis-emitter'
 import type { Socket } from 'socket.io'
 import type redis from 'redis'
 import log from '@lib/logger'
@@ -45,9 +46,11 @@ const conn = async (io: Server, socket: Socket): Promise<void> => {
   })
 }
 
+export let io: Emitter
+
 export async function socketConnect(Redis: redis.RedisClient): Promise<void> {
   const IO = new Server(environment.socketIO.port)
-
+  io = new Emitter(Redis)
   IO.adapter(createAdapter(Redis, Redis.duplicate()))
 
   IO.on('connection', async (socket) => await conn(IO, socket))
