@@ -23,7 +23,7 @@ module.exports = {
           '@models': './src/api/models',
           '@routers': './src/api/routers',
           '@services': './src/services',
-          '@types': './src/@types'
+          Types: './src/types'
         }
       }
     ]
