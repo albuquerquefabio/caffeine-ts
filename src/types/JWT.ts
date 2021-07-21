@@ -1,4 +1,4 @@
-import { IUser } from './User'
+import { IUserDocument } from './User'
 export interface IDataSession {
   ip: string
   agent: string
@@ -12,7 +12,7 @@ export interface ISession {
   dataToken?: any | null
 }
 
-export interface IJWTSession extends IUser {
+export interface IJWTSession extends IUserDocument {
   session: ISession
 }
 

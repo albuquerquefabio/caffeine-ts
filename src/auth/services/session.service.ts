@@ -4,11 +4,11 @@ import environment from '@env/index'
 import { error } from 'express-easy-helper'
 import { calc, time } from 'role-calc'
 import type { Request, Response } from '@tinyhttp/app'
-import { IUser } from 'Types/User'
+import type { IUserDocument } from 'Types/User'
 import log from '@lib/logger'
 import ms from 'ms'
 
-export async function initialize(user: IUser, req: Request, res: Response) {
+export async function initialize(user: IUserDocument, req: Request, res: Response) {
   try {
     if (!user) return error(res, { message: 'Something wrong, please try again.' })
 

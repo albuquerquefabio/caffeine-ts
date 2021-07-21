@@ -1,10 +1,10 @@
 import User from '@models/User'
 import type { Request, Response } from '@tinyhttp/app'
-import { IUser } from 'Types/User'
+import type { IUserDocument } from 'Types/User'
 
 export const controller = {
   create: () => async (req: Request, res: Response) => {
-    const { username, name, lastname, email, password, provider }: IUser = req.body
+    const { username, name, lastname, email, password, provider }: IUserDocument = req.body
 
     try {
       const user = await User.create({
