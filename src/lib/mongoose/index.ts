@@ -29,7 +29,7 @@ export async function mongoConnect(): Promise<void> {
     for (const i in models) {
       if (models[i].indexOf(ext) > -1) await import(`${environment.base}/api/models${models[i]}`)
     }
-    // Plnat Seed
+    // Plant Seed
     // TODO
   } catch (err) {
     log.fatal(`MongoDB -> connection error: ${URI}`, err)

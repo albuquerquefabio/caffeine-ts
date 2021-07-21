@@ -1,8 +1,10 @@
+import authRouters from '@auth/routers'
 import type { App } from '@tinyhttp/app'
 import routers from '@routers/index'
 
 export default async function routes(app: App): Promise<void> {
   await routers(app)
+  await authRouters(app)
 
   app.get('/', async (_, res) => {
     try {
