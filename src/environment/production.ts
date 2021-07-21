@@ -1,5 +1,9 @@
 import path from 'path'
 
+import { config } from 'dotenv'
+
+config()
+
 const APP_NAME = 'caffeine-pack'
 const DB_NAME = 'caffeine-pack'
 const PORT = +process.env.PORT || 30000

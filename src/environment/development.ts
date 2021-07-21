@@ -1,10 +1,13 @@
 import path from 'path'
+import { config } from 'dotenv'
+
+config()
 
 const APP_NAME = 'caffeine-pack'
 const DB_NAME = 'caffeine-dev'
 const PORT = +process.env.PORT || 3000
 export default {
-  secret: 'the_most_screte_key', // secret key
+  secret: 'the_most_secret_key', // secret key
   server: {
     ip: process.env.IP || 'localhost',
     port: PORT
