@@ -3,17 +3,18 @@ import type { App } from '@tinyhttp/app'
 
 import { logger } from '@tinyhttp/logger'
 import bodyParser from 'body-parser'
-import { cookieParser } from '@tinyhttp/cookie-parser'
 
 import helmet from 'helmet'
 import { cors } from '@tinyhttp/cors'
 import environment from '@env/index'
+import cookieParser from 'cookie-parser'
+
 export async function config(app: App): Promise<void> {
   const methods = ['GET', 'POST', 'PUT', 'DELETE']
   app
     .use(bodyParser.json({ limit: '5mb' }))
     .use(bodyParser.urlencoded({ extended: false }))
-    .use(cookieParser())
+    .use(cookieParser(environment.secret))
     // for gzip compression you should use Nginx
     .use(helmet())
     .use(
