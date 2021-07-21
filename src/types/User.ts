@@ -1,6 +1,7 @@
-import type { Document, Model, PaginateModel } from 'mongoose'
+import type { Document, Model, PaginateModel, ObjectId } from 'mongoose'
 
 export interface IUser {
+  _id?: ObjectId | string
   username: string
   password: string
   email: string
