@@ -1,0 +1,6 @@
+{
+  "watch": ["src"],
+  "ext": "ts,json,yml",
+  "ignore": ["src/**/*.spec.ts", "node_modules/**"],
+  "exec": "node -r tsconfig-paths/register --loader ts-node/esm ./src/index.ts "
+}
