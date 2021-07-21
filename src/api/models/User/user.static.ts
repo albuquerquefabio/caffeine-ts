@@ -18,11 +18,11 @@ export default (User: Schema<IUserDocument, IUserModel, undefined, any>) => {
           $or: [{ username }, { email: username }]
         }).exec()
 
-        if (!user) throw new Error(`${username} is not registered.`)
+        if (!user) return new Error(`${username} is not registered.`)
 
         const isMatch = await user.checkPassword(password)
 
-        if (!isMatch) throw new Error(`This password is not correct.`)
+        if (!isMatch) return new Error(`This password is not correct.`)
 
         user.lastLogin = new Date()
 
