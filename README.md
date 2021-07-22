@@ -11,6 +11,14 @@ pnpm install # local dependencies
 
 ```
 
+## Docker
+
+Install and run MongoDB@5.0 and Redis@6.2.4 as Docker container
+
+```sh
+  docker-compose -f "docker-compose.yml" up -d --build
+```
+
 ## Run
 
 ```sh
