@@ -46,18 +46,22 @@ export interface IRedisDriver {
   /**
    * Destroy by key or keys[]
    */
-  destroy: (key: string) => Promise<number | null>
+  destroy: (key: string | string[]) => Promise<number>
   /**
    * Destroy multiple by key
    */
-  destroyMultiple: (key: string) => Promise<any | null>
+  destroyMultiple: (key: string | string[]) => Promise<number>
+  /**
+   * @function dbSize()
+   * @returns Return the number of keys in the selected database.
+   */
+  dbSize: () => Promise<number>
   /**
    * @function getInfo()
-   * @param section 'DBSIZE' @returns Return the number of keys in the selected database.
    * @param section ? @returns Get all information and statistics about the server.
    * @param section string[] @returns Get information and statistics about the server.
    */
-  getInfo: (section?: string | string[]) => Promise<ServerInfo | number | null>
+  getInfo: (section?: string | string[]) => Promise<ServerInfo>
   /**
    * Ping the server.
    */

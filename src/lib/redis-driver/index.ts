@@ -74,33 +74,36 @@ export const redisDriver: IRedisDriver = {
       return null
     }
   },
-  destroy: async (key: string): Promise<number | null> => {
+  destroy: async (key: string | string[]): Promise<number> => {
     try {
       return await delAsync(key)
     } catch (err) {
-      return null
+      return 0
     }
   },
-  destroyMultiple: async (key: string): Promise<number | null> => {
+  destroyMultiple: async (key: string | string[]): Promise<number> => {
     try {
       const patternQuery = `${key}:*`
       const keys = await getAllAsync(patternQuery)
       return await delAsync(keys)
     } catch (err) {
-      return null
+      return 0
     }
   },
 
   // INFO DB
-  getInfo: async (section?: string | string[]): Promise<ServerInfo | number | null> => {
+  dbSize: async (): Promise<number> => {
     try {
-      if (section === 'DBSIZE' || section === 'dbsize') {
-        return await dbsizeAsync()
-      } else {
-        return await infoAsync(section)
-      }
+      return await dbsizeAsync()
     } catch (err) {
-      return null
+      return err
+    }
+  },
+  getInfo: async (section?: string | string[]): Promise<ServerInfo> => {
+    try {
+      return await infoAsync(section)
+    } catch (err) {
+      return err
     }
   },
   ping: async (message?: string): Promise<string | null> => {
