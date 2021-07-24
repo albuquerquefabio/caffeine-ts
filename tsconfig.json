@@ -23,7 +23,7 @@
       "@env/*": ["./src/environment/*"],
       "@lib/*": ["./src/lib/*"],
       "@services/*": ["./src/services/*"],
-      "@types/*": ["src/types/*"]
+      "@types/*": ["./src/types/*"]
     },
     "importHelpers": true,
     "incremental": true
