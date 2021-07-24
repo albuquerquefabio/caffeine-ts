@@ -4,14 +4,17 @@ Minimal [TypeScript](https://www.typescriptlang.org/) setup for [tinyHttp](https
 
 ## Setup
 
+Node requirement v14.x.x or latest one.\*
+
 ```sh
 npm i -g pnpm # install pnpm cli
 pnpm i -g @tinyhttp/cli nodemon pm2 tsc # global dependencies
 pnpm install # local dependencies
-
 ```
 
-## Docker
+> I recommend you to use [nvm.sh](http://nvmv.sh) or [NodeJS Docker Image](https://hub.docker.com/_/node/).
+
+## Docker container
 
 Install and run MongoDB@5.0 and Redis@6.2.4 as Docker container
 
