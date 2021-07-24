@@ -16,14 +16,12 @@ module.exports = {
       'module-resolver',
       {
         alias: {
+          '@api': './src/api',
           '@auth': './src/auth',
-          '@controllers': './src/api/controllers',
           '@env': './src/environment',
           '@lib': './src/lib',
-          '@models': './src/api/models',
-          '@routers': './src/api/routers',
           '@services': './src/services',
-          Types: './src/types'
+          '@types': './src/types'
         }
       }
     ]

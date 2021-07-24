@@ -1,7 +1,7 @@
 import environment from '@env/index'
 import { redisDriver } from '@lib/redis-driver/index'
 import { jwt } from '@lib/jwt'
-import { IJWTToken } from 'Types/JWT'
+import { IJWTToken } from '@types/JWT'
 import { makeId } from '@lib/util'
 export const Token = {
   create: async (_id: string, _options?: IJWTToken): Promise<string> => {
