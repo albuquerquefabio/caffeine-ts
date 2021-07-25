@@ -1,6 +1,6 @@
 import User from '@api/user/user.model'
 import type { Request, Response } from '@tinyhttp/app'
-import type { IUserDocument } from '@types/User'
+import type { IUserDocument } from '@type/user'
 
 export const controller = {
   create: () => async (req: Request, res: Response) => {

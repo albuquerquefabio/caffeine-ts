@@ -21,7 +21,7 @@ module.exports = {
           '@env': './src/environment',
           '@lib': './src/lib',
           '@services': './src/services',
-          '@types': './src/types'
+          '@type': './src/types'
         }
       }
     ]

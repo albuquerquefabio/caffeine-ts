@@ -1,4 +1,4 @@
-import { IUserDocument } from './User'
+import { IUserDocument } from './user'
 export interface IDataSession {
   ip: string
   agent: string

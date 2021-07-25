@@ -1,5 +1,5 @@
 import { Request } from '@tinyhttp/app'
-import { IJWTSession } from './JWT'
+import { IJWTSession } from './jwt'
 export interface IReqQuery {
   search?: string | string[]
   page: number

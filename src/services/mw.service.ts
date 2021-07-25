@@ -1,8 +1,8 @@
-import User from '@models/User/user.model'
+import User from '@api/user/user.model'
 import { Token } from '@lib/token'
 import { unauthorized, forbidden } from 'express-easy-helper'
 import { has } from 'role-calc'
-import type { IReqUser } from '@types/Req'
+import type { IReqUser } from '@type/request'
 
 import type { Response, NextFunction } from '@tinyhttp/app'
 
@@ -14,7 +14,7 @@ export function mw(requiresRoles?: string | string[]) {
     if (!token) return forbidden(res)
 
     try {
-      // Verify Token with redis-jwt -> if you want to extract the data you shoud
+      // Verify Token with redis-jwt -> if you want to extract the data you should
       const session = await Token.verify(String(token), true)
       if (!session) return unauthorized(res)
       // Extract info user from MongoDB

@@ -1,5 +1,5 @@
 import log from '@lib/logger'
-import type { IUserDocument } from '@types/User'
+import type { IUserDocument } from '@type/user'
 import { error } from 'express-easy-helper'
 import { initialize } from '@services/session.service'
 import type { Request, Response } from '@tinyhttp/app'

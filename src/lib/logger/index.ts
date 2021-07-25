@@ -1,7 +1,7 @@
 import zoya from 'zoya'
 
 const log = {
-  // @typescript-eslint/explicit-module-boundary-types
+  // @typecript-eslint/explicit-module-boundary-types
   info: (str: string, context?: any): void => {
     zoya.info(str, context)
   },

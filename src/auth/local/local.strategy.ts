@@ -1,5 +1,5 @@
 import log from '@lib/logger'
-import User from '@models/User/user.model'
+import User from '@api/user/user.model'
 import { unauthorized } from 'express-easy-helper'
 
 import type { Request, Response, NextFunction } from '@tinyhttp/app'

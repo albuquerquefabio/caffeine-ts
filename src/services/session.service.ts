@@ -1,10 +1,10 @@
 import { Token } from '@lib/token'
-import { IDataSession } from '@types/JWT'
+import { IDataSession } from '@type/jwt'
 import environment from '@env/index'
 import { error } from 'express-easy-helper'
 import { calc, time } from 'role-calc'
 import type { Request, Response } from '@tinyhttp/app'
-import type { IUserDocument } from '@types/User'
+import type { IUserDocument } from '@type/user'
 import log from '@lib/logger'
 import ms from 'ms'
 

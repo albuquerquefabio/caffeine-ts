@@ -1,4 +1,4 @@
-import { IRedisDriver } from '@types/RedisDriver'
+import { IRedisDriver } from '@type/redis-driver'
 import {
   setexAsync,
   setAsync,

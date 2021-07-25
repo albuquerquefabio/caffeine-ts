@@ -1,6 +1,6 @@
 import { redisDriver } from '@lib/redis-driver/index'
 import type { Response } from '@tinyhttp/app'
-import type { IReqUser } from '@types/Req'
+import type { IReqUser } from '@type/request'
 import { error } from 'express-easy-helper'
 
 export const controller = {

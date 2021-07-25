@@ -1,5 +1,5 @@
 import { Schema } from 'mongoose'
-import { IUserDocument, IUserModel } from '@types/User'
+import { IUserDocument, IUserModel } from '@type/user'
 
 export default (User: Schema<IUserDocument, IUserModel, undefined, any>) => {
   User.statics = {
