@@ -6,9 +6,6 @@ module.exports = {
       watch: false,
       log_file: './logs/server-simple.log',
       env: {
-        NODE_ENV: 'development'
-      },
-      env_production: {
         NODE_ENV: 'production'
       }
     }
