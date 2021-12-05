@@ -8,9 +8,6 @@ module.exports = {
       watch: false,
       log_file: './logs/server-cluster.log',
       env: {
-        NODE_ENV: 'development'
-      },
-      env_production: {
         NODE_ENV: 'production'
       }
     }
