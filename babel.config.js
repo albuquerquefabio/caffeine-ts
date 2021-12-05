@@ -20,8 +20,7 @@ module.exports = {
           '@auth': './src/auth',
           '@env': './src/environment',
           '@lib': './src/lib',
-          '@services': './src/services',
-          '@type': './src/types'
+          '@services': './src/services'
         }
       }
     ]

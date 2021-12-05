@@ -8,7 +8,7 @@
     "outDir": "./build", // Types should go into this directory.
     "rootDir": "./src/",
     "removeComments": true,
-    "typeRoots": ["./node_modules/@types", "src/types"],
+    "typeRoots": ["./node_modules/@types", "src/@types"],
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,
@@ -22,8 +22,7 @@
       "@auth/*": ["./src/auth/*"],
       "@env/*": ["./src/environment/*"],
       "@lib/*": ["./src/lib/*"],
-      "@services/*": ["./src/services/*"],
-      "@type/*": ["./src/types/*"]
+      "@services/*": ["./src/services/*"]
     },
     "importHelpers": true,
     "incremental": true

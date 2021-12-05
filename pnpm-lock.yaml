@@ -11,9 +11,9 @@ specifiers:
   '@socket.io/redis-adapter': ^7.0.0
   '@socket.io/redis-emitter': ^4.1.0
   '@tinyhttp/app': 1.3.15
-  '@tinyhttp/bot-detector': latest
-  '@tinyhttp/cors': 1.3.2
-  '@tinyhttp/logger': latest
+  '@tinyhttp/bot-detector': ^1.3.11
+  '@tinyhttp/cors': ^1.3.2
+  '@tinyhttp/logger': ^1.3.0
   '@types/bcrypt': ^5.0.0
   '@types/body-parser': ^1.19.0
   '@types/filesystem': ^0.0.31
@@ -1627,6 +1627,7 @@ packages:
 
   /@nicolo-ribaudo/chokidar-2/2.1.8-no-fsevents.2:
     resolution: {integrity: sha512-Fb8WxUFOBQVl+CX4MWet5o7eCc6Pj04rXIwVKZ6h1NnqTo45eOQW6aWyhG25NIODvWFwTDMwBsYxrQ3imxpetg==}
+    requiresBuild: true
     dependencies:
       anymatch: 2.0.0
       async-each: 1.0.3
@@ -4385,6 +4386,7 @@ packages:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
+    requiresBuild: true
     optional: true
 
   /ftp/0.3.10:
@@ -6821,6 +6823,7 @@ packages:
 
   /pm2-sysmonit/1.2.8:
     resolution: {integrity: sha512-ACOhlONEXdCTVwKieBIQLSi2tQZ8eKinhcr9JpZSUAL8Qy0ajIgRtsLxG/lwPOW3JEKqPyw/UaHmTWhUzpP4kA==}
+    requiresBuild: true
     dependencies:
       async: 3.2.0
       debug: 4.3.1
@@ -7386,6 +7389,7 @@ packages:
   /saslprep/1.0.3:
     resolution: {integrity: sha512-/MY/PEMbk2SuY5sScONwhUDsV2p77Znkb/q3nSVstq/yQzYJOH/Azh29p9oJLsl3LnQwSvZDKagDGBsBwSooag==}
     engines: {node: '>=6'}
+    requiresBuild: true
     dependencies:
       sparse-bitfield: 3.0.3
     optional: true

@@ -1,6 +1,6 @@
 import { model, Schema } from 'mongoose'
 import mongoosePaginate from 'mongoose-paginate'
-import type { IUserDocument, IUserModel } from '@type/user'
+import type { IUserDocument, IUserModel } from 'src/@types/user'
 import bcrypt from 'bcrypt'
 import userStatic from '@api/user/user.static'
 

@@ -2,7 +2,7 @@ import User from '@api/user/user.model'
 import { Token } from '@lib/token'
 import { unauthorized, forbidden } from 'express-easy-helper'
 import { has } from 'role-calc'
-import type { IReqUser } from '@type/request'
+import type { IReqUser } from 'src/@types/request'
 
 import type { Response, NextFunction } from '@tinyhttp/app'
 

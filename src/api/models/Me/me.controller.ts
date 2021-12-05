@@ -1,4 +1,4 @@
-import type { IReqUser } from '@type/request'
+import type { IReqUser } from 'src/@types/request'
 import type { Response } from '@tinyhttp/app'
 
 // Get current user
