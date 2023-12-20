@@ -15,7 +15,34 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-this-alias": "off",
-    "no-console": 2
+    "no-console": 2,
+    "@typescript-eslint/array-type": ["error", { "default": "generic" }],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    // Erros
+    "valid-typeof": 2,
+    // Best Practices
+    "no-useless-escape": 1,
+    "eqeqeq": 1,
+    "vars-on-top": 2,
+    "default-case": 2,
+    // Variables
+    "init-declarations": 1,
+    "no-delete-var": 1,
+    "no-label-var": 1,
+    "no-shadow-restricted-names": 1,
+    "no-undef": 2,
+    "no-undef-init": 2,
+    "no-unused-vars": 0,
+    // Node
+    "handle-callback-err": 0,
+    "no-mixed-requires": 1,
+    "no-restricted-modules": 2,
+    // Stylistic Issues
+    // ECMAScript 6
+    "no-var": 1,
+    "constructor-super": 1,
+    "no-const-assign": 1
   },
 
   "extends": [
