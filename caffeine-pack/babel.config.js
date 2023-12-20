@@ -6,7 +6,8 @@ module.exports = {
         targets: {
           node: 'current',
           esmodules: true
-        }
+        },
+        loose: true
       }
     ],
     '@babel/preset-typescript'
@@ -25,5 +26,5 @@ module.exports = {
       }
     ]
   ],
-  ignore: ['**/*.spec.ts']
+  ignore: ['**/*.test.js', '**/*.spec.js', '**/*.test.ts', '**/*.spec.ts', 'node_modules']
 }
