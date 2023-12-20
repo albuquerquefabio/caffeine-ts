@@ -10,10 +10,10 @@ import { hsetAsync, hdelAsync } from '@lib/redis'
 const socketConnectInfo = async (io: Server) => {
   log.success(`Socket connected on http://${environment.server.ip}:${environment.socketIO.port}`)
   const count = io.of('/').sockets.size
-  log.info(`Socket-> total clients`, count)
+  log.info('Socket-> total clients', count)
 }
 
-const saveSocketUserId = async (user: string | string[], socketId: string): Promise<void> => {
+const saveSocketUserId = async (user: string | Array<string>, socketId: string): Promise<void> => {
   try {
     await hsetAsync(['socket', String(user), socketId])
   } catch (error) {
@@ -21,7 +21,7 @@ const saveSocketUserId = async (user: string | string[], socketId: string): Prom
   }
 }
 
-const removeSocketUserId = async (user: string | string[], socketId: string): Promise<void> => {
+const removeSocketUserId = async (user: string | Array<string>, socketId: string): Promise<void> => {
   try {
     await hdelAsync('socket', String(user), socketId)
   } catch (error) {
@@ -41,7 +41,7 @@ const conn = async (io: Server, socket: Socket): Promise<void> => {
     if (environment.log) {
       const count = io.of('/').sockets.size
       log.info('Socket-> disconnect')
-      log.info(`Socket-> total clients`, count)
+      log.info('Socket-> total clients', count)
     }
   })
 }

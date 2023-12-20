@@ -22,7 +22,7 @@ export default (User: Schema<IUserDocument, IUserModel, undefined, any>) => {
 
         const isMatch = await user.checkPassword(password)
 
-        if (!isMatch) return new Error(`This password is not correct.`)
+        if (!isMatch) return new Error('This password is not correct.')
 
         user.lastLogin = new Date()
 

@@ -55,7 +55,7 @@ export const redisDriver: IRedisDriver = {
       return null
     }
   },
-  getValuesByPattern: async (pattern: string): Promise<string[] | null> => {
+  getValuesByPattern: async (pattern: string): Promise<Array<string> | null> => {
     try {
       const patternQuery = `${pattern}:*`
       const keys = await getAllAsync(patternQuery)
@@ -74,14 +74,14 @@ export const redisDriver: IRedisDriver = {
       return null
     }
   },
-  destroy: async (key: string | string[]): Promise<number> => {
+  destroy: async (key: string | Array<string>): Promise<number> => {
     try {
       return await delAsync(key)
     } catch (err) {
       return 0
     }
   },
-  destroyMultiple: async (key: string | string[]): Promise<number> => {
+  destroyMultiple: async (key: string | Array<string>): Promise<number> => {
     try {
       const patternQuery = `${key}:*`
       const keys = await getAllAsync(patternQuery)
@@ -99,7 +99,7 @@ export const redisDriver: IRedisDriver = {
       return err
     }
   },
-  getInfo: async (section?: string | string[]): Promise<ServerInfo> => {
+  getInfo: async (section?: string | Array<string>): Promise<ServerInfo> => {
     try {
       return await infoAsync(section)
     } catch (err) {

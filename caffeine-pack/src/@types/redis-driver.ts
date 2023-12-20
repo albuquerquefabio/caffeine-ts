@@ -39,18 +39,18 @@ export interface IRedisDriver {
   getValueByKey: (key: string) => Promise<string | null>
   /**
    * Get values by pattern */
-  getValuesByPattern: (pattern: string) => Promise<string[] | null>
+  getValuesByPattern: (pattern: string) => Promise<Array<string> | null>
   /**
    * Get count by pattern */
   getCountByPattern: (pattern: string) => Promise<number | null>
   /**
    * Destroy by key or keys[]
    */
-  destroy: (key: string | string[]) => Promise<number>
+  destroy: (key: string | Array<string>) => Promise<number>
   /**
    * Destroy multiple by key
    */
-  destroyMultiple: (key: string | string[]) => Promise<number>
+  destroyMultiple: (key: string | Array<string>) => Promise<number>
   /**
    * @function dbSize()
    * @returns Return the number of keys in the selected database.
@@ -61,7 +61,7 @@ export interface IRedisDriver {
    * @param section ? @returns Get all information and statistics about the server.
    * @param section string[] @returns Get information and statistics about the server.
    */
-  getInfo: (section?: string | string[]) => Promise<ServerInfo>
+  getInfo: (section?: string | Array<string>) => Promise<ServerInfo>
   /**
    * Ping the server.
    */

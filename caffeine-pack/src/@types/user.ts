@@ -9,7 +9,7 @@ export interface IUser {
   provider: string
   status?: boolean
   lastLogin?: Date
-  roles?: string[]
+  roles?: Array<string>
 }
 
 export interface IUserDocument extends IUser, Document {

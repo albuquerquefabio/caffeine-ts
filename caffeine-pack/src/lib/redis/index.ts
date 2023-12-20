@@ -29,7 +29,7 @@ export async function redisConnect(): Promise<redis.RedisClient> {
 const voidSetAsync = (key: string, value: string, cb?: redis.Callback<'OK'>): void => {
   CLIENT.set(key, value, cb)
 }
-const voidHSetAsync = (arg: [string, ...string[]], cb?: redis.Callback<number>): void => {
+const voidHSetAsync = (arg: [string, ...Array<string>], cb?: redis.Callback<number>): void => {
   CLIENT.hset(arg, cb)
 }
 const voidSetExAsync = (key: string, value: string, ttl: number, cb?: redis.Callback<string>): void => {
@@ -41,22 +41,22 @@ const voidGet = (key: string, cb?: redis.Callback<string>): void => {
 const voidHGetAsync = (key: string, field: string, cb?: redis.Callback<string>): void => {
   CLIENT.hget(key, field, cb)
 }
-const voidGetAllAsync = (pattern: string, cb?: redis.Callback<string[]>): void => {
+const voidGetAllAsync = (pattern: string, cb?: redis.Callback<Array<string>>): void => {
   CLIENT.keys(pattern, cb)
 }
 const voidHGetAllAsync = (key: string, cb?: redis.Callback<{ [key: string]: string }>): void => {
   CLIENT.hgetall(key, cb)
 }
-const voidMGetAsync = (query: string | string[], cb?: redis.Callback<string[]>): void => {
+const voidMGetAsync = (query: string | Array<string>, cb?: redis.Callback<Array<string>>): void => {
   CLIENT.mget(query, cb)
 }
-const voidDelAsync = (key: string | string[], cb?: redis.Callback<number>): void => {
+const voidDelAsync = (key: string | Array<string>, cb?: redis.Callback<number>): void => {
   CLIENT.del(key, cb)
 }
 const voidHDelAsync = (key: string, field: string, value: string, cb?: redis.Callback<number>): void => {
   CLIENT.hdel(key, field, value, cb)
 }
-const voidExistsAsync = (key: string | string[], cb?: redis.Callback<number>): void => {
+const voidExistsAsync = (key: string | Array<string>, cb?: redis.Callback<number>): void => {
   CLIENT.exists(key, cb)
 }
 const voidTtlAsync = (key: string, cb?: redis.Callback<number>): void => {
@@ -67,7 +67,7 @@ const voidTtlAsync = (key: string, cb?: redis.Callback<number>): void => {
 const voidDbSize = (cb?: redis.Callback<number>): void => {
   CLIENT.dbsize(cb)
 }
-const voidInfo = (section?: string | string[], cb?: redis.Callback<redis.ServerInfo>): void => {
+const voidInfo = (section?: string | Array<string>, cb?: redis.Callback<redis.ServerInfo>): void => {
   if (section) {
     CLIENT.info(section, cb)
   } else {
