@@ -5,6 +5,8 @@ services:
     restart: always
     ports:
       - 27017:27017
+    networks:
+      - compose-network
     # environment:
     #   MONGO_INITDB_ROOT_USERNAME: username
     #   MONGO_INITDB_ROOT_PASSWORD: example
@@ -13,3 +15,8 @@ services:
     restart: always
     ports:
       - 6379:6379
+    networks:
+      - compose-network
+networks:
+  compose-network:
+    driver: bridge
