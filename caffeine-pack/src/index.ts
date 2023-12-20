@@ -11,16 +11,17 @@ import { socketConnect } from '@lib/socketIO'
 import routes from '@lib/routes'
 
 const app = new App({
-  noMatchHandler: (req: Request, res: Response): void => {
+  noMatchHandler: (_req: Request, res: Response): void => {
     res.status(404).end('Not found :(')
   },
-  onError: (err, req, res) => {
+  onError: (err, _req, res) => {
     res.status(500).send({
       message: err.message || err
     })
   },
   settings: {
-    networkExtensions: true
+    networkExtensions: true,
+    xPoweredBy: 'Caffeine'
   }
 })
 
