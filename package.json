@@ -13,7 +13,26 @@
     "prod:cluster": "pnpm --filter caffeine-pack run prod:cluster",
     "prod:docker": "pnpm --filter caffeine-pack run prod:docker"
   },
-  "keywords": [],
+  "keywords": [
+    "typescript",
+    "framework",
+    "web",
+    "node",
+    "nodejs",
+    "tinyhttp",
+    "api",
+    "rest",
+    "restful",
+    "pnpm",
+    "monorepo",
+    "mongodb",
+    "mongoose",
+    "redis",
+    "socket.io",
+    "socketio",
+    "socket",
+    "docker"
+  ],
   "author": "",
   "license": "MIT"
 }
