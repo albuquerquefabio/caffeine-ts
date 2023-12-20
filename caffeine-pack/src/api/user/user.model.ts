@@ -102,6 +102,6 @@ UserSchema.post('save', function (err: any, doc: IUserDocument, next: any) {
 
 userStatic(UserSchema)
 
-UserSchema.plugin(mongoosePaginate)
+UserSchema.plugin(mongoosePaginate as any) // TODO: Migrate to mongoose-paginate-v2
 
 export default model<IUserDocument, IUserModel>('User', UserSchema)

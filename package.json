@@ -5,9 +5,34 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "pnpm --filter caffeine-pack run start"
+    "start": "pnpm --filter caffeine-pack run start",
+    "stop": "pnpm --filter caffeine-pack run stop",
+    "build": "pnpm --filter caffeine-pack run build",
+    "build:docker": "pnpm --filter caffeine-pack run build:docker",
+    "prod": "pnpm --filter caffeine-pack run prod",
+    "prod:cluster": "pnpm --filter caffeine-pack run prod:cluster",
+    "prod:docker": "pnpm --filter caffeine-pack run prod:docker"
   },
-  "keywords": [],
+  "keywords": [
+    "typescript",
+    "framework",
+    "web",
+    "node",
+    "nodejs",
+    "tinyhttp",
+    "api",
+    "rest",
+    "restful",
+    "pnpm",
+    "monorepo",
+    "mongodb",
+    "mongoose",
+    "redis",
+    "socket.io",
+    "socketio",
+    "socket",
+    "docker"
+  ],
   "author": "",
   "license": "MIT"
 }
