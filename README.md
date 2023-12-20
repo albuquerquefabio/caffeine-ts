@@ -12,7 +12,11 @@ pnpm i -g @tinyhttp/cli nodemon pm2 tsc # global dependencies
 pnpm install # local dependencies
 ```
 
-> I recommend you to use [nvm.sh](http://nvmv.sh) or [NodeJS Docker Image](https://hub.docker.com/_/node/).
+To install new dependencies use `pnpm --filter <workspace> add` or `pnpm --filter <workspace> add -D` for dev dependencies.
+
+If you want to install at root folder use `pnpm add -w` or `pnpm add -Dw` for dev dependencies.
+
+> I recommend you to use [nvm.sh](http://nvmv.sh) or [NodeJS Docker Image](https://hub.docker.com/_/node/) to manage your NodeJS versions.
 
 ## Docker container
 
