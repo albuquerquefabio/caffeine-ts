@@ -93,6 +93,6 @@ export default {
   mode: process.env.NODE_ENV || 'development', // mode
   name: APP_NAME, // name
   node: parseInt(process.env.NODE_APP_INSTANCE) || 0, // node instance
-  root: path.normalize(`${__dirname}/../..`), // root
-  base: path.normalize(`${__dirname}/..`) // base
+  root: path.normalize(`${__dirname}/../../..`), // root
+  base: path.normalize(`${__dirname}/../..`) // base
 }

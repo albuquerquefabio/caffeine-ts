@@ -3,7 +3,6 @@ import authRouters from '@auth/index'
 import type { App } from '@tinyhttp/app'
 import routers from '@api/index'
 // import safe from 'safe-regex'
-// import { forbidden } from 'express-easy-helper'
 
 export default async function routes(app: App): Promise<void> {
   // app.all('*', (req, res, next) => {

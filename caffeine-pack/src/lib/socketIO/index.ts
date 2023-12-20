@@ -1,4 +1,4 @@
-import environment from '@env/index'
+import { environment } from '@lib/environment'
 import { createAdapter } from '@socket.io/redis-adapter'
 import { Server } from 'socket.io'
 import { Emitter } from '@socket.io/redis-emitter'

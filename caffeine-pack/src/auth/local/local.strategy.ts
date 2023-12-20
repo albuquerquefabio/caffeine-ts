@@ -1,6 +1,5 @@
 import log from '@lib/logger'
 import User from '@api/user/user.model'
-import { unauthorized } from 'express-easy-helper'
 
 import type { Request, Response, NextFunction } from '@tinyhttp/app'
 
@@ -11,11 +10,11 @@ export default function LocalStrategy() {
     try {
       const user = await User.findByUsername(username)
       if (!user) {
-        return unauthorized(res, { msg: 'Username incorrect' })
+        return res.status(401).send('Invalid username or password')
       }
       const pass = await user.checkPassword(password)
       if (!pass) {
-        return unauthorized(res, { msg: 'Password incorrect' })
+        return res.status(401).send('Invalid username or password')
       }
 
       const login = await User.loginByLocal(username, password)

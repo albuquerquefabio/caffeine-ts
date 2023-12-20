@@ -1,7 +1,6 @@
 import { redisDriver } from '@lib/redis-driver/index'
 import type { Response } from '@tinyhttp/app'
 import type { IReqUser } from 'src/@types/request'
-import { error } from 'express-easy-helper'
 
 export const controller = {
   dbSize: () => async (_req: IReqUser, res: Response) => {
@@ -9,7 +8,7 @@ export const controller = {
       const size = await redisDriver.dbSize()
       res.send({ size })
     } catch (err) {
-      error(res, `${err}`)
+      res.status(500).send(String(err))
     }
   },
   section: () => async (req: IReqUser, res: Response) => {
@@ -19,7 +18,7 @@ export const controller = {
       const stmt = query.toLowerCase() === 'ping' ? await redisDriver.ping() : await redisDriver.getInfo()
       res.send(stmt)
     } catch (err) {
-      error(res, `${err}`)
+      res.status(500).send(String(err))
     }
   }
 }
