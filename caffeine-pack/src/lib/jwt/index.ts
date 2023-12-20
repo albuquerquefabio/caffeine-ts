@@ -1,5 +1,6 @@
-import environment from '@env/index'
-import { sign, verify } from 'jsonwebtoken'
+import { environment } from '@lib/environment'
+import jwtModule from 'jsonwebtoken'
+// import { sign, verify } from 'jsonwebtoken'
 
 export const jwt = {
   sign: async (rjwt: string, dataToken?: any) => {
@@ -8,9 +9,9 @@ export const jwt = {
     if (dataToken) {
       Object.assign(value, { dataToken })
     }
-    return sign(value, environment.secret)
+    return jwtModule.sign(value, environment.secret)
   },
   verify: async (token: string) => {
-    return verify(token, environment.secret)
+    return jwtModule.verify(token, environment.secret)
   }
 }

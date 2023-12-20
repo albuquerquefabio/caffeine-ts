@@ -1,4 +1,4 @@
-import environment from '@env/index'
+import { environment } from '@lib/environment'
 import log from '@lib/logger'
 import { promisify } from 'util'
 import redis from 'redis'
@@ -92,7 +92,7 @@ export const hgetAllAsync = promisify(voidHGetAllAsync)
 export const mgetAsync = promisify(voidMGetAsync)
 export const delAsync = promisify(voidDelAsync)
 export const hdelAsync = promisify(voidHDelAsync)
-export const existsAsync = promisify(voidExistsAsync)
+export const existsAsync = promisify<string | Array<string>, number | null>(voidExistsAsync)
 export const ttlAsync = promisify(voidTtlAsync)
 // export Redis db info
 /**

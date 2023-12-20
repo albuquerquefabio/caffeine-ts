@@ -1,7 +1,6 @@
 import { redisDriver } from '@lib/redis-driver/index'
 import type { Response } from '@tinyhttp/app'
 import type { IReqUser } from 'src/@types/request'
-import { error } from 'express-easy-helper'
 
 export const controller = {
   logout: () => async (req: IReqUser, res: Response) => {
@@ -12,7 +11,7 @@ export const controller = {
       if (!stmt) return res.status(404).end('not found')
       res.send('done')
     } catch (err) {
-      error(res, `${err}`)
+      res.status(500).send(String(err))
     }
   }
 }

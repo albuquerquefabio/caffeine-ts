@@ -19,7 +19,6 @@ module.exports = {
         alias: {
           '@api': './src/api',
           '@auth': './src/auth',
-          '@env': './src/environment',
           '@lib': './src/lib',
           '@services': './src/services'
         }
