@@ -1,12 +1,13 @@
 {
   "name": "caffeine-ts",
   "version": "1.0.0",
-  "description": "",
+  "description": "Caffeine-TS is a simple, lightweight, monorepo, and easy to use framework for building web applications in TypeScript.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "pnpm --filter caffeine-pack run start"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }
