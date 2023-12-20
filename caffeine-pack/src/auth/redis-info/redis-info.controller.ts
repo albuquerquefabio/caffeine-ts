@@ -4,7 +4,7 @@ import type { IReqUser } from 'src/@types/request'
 import { error } from 'express-easy-helper'
 
 export const controller = {
-  dbSize: () => async (req: IReqUser, res: Response) => {
+  dbSize: () => async (_req: IReqUser, res: Response) => {
     try {
       const size = await redisDriver.dbSize()
       res.send({ size })
