@@ -1,7 +1,6 @@
 import log from '@lib/logger'
-import type { App } from '@tinyhttp/app'
+import type { App, NextFunction, Request, Response } from '@tinyhttp/app'
 
-import { logger } from '@tinyhttp/logger'
 import bodyParser from 'body-parser'
 
 import helmet from 'helmet'
@@ -27,12 +26,9 @@ export async function config(app: App): Promise<void> {
 
   // TODO SESSION LOGIN
   !environment.log ||
-    app.use(
-      logger({
-        ip: true,
-        methods,
-        timestamp: { format: 'MM-DD-YY HH:mm:ss Z' },
-        output: { callback: log.info, color: true }
-      })
-    )
+    app.use((req: Request, res: Response, next: NextFunction): void => {
+      // show method , url, ip and timestamp
+      log.info(`[${req.method}] ${req.url} ${req.ip} ${new Date().toISOString()}`, res.statusCode)
+      next()
+    })
 }
