@@ -1,7 +1,7 @@
 import { Request } from '@tinyhttp/app'
 import { IJWTSession } from './jwt'
 export interface IReqQuery {
-  search?: string | string[]
+  search?: string | Array<string>
   page: number
   limit: number
 }

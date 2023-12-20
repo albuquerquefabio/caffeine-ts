@@ -77,7 +77,7 @@ UserSchema.methods.checkPassword = async function (password: string) {
   return result
 }
 
-UserSchema.pre(`save`, async function (this: IUserDocument, next) {
+UserSchema.pre('save', async function (this: IUserDocument, next) {
   const user = this
 
   if (!user.isModified('password')) return next()

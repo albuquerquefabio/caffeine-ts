@@ -6,7 +6,7 @@ import type { IReqUser } from 'src/@types/request'
 
 import type { Response, NextFunction } from '@tinyhttp/app'
 
-export function mw(requiresRoles?: string | string[]) {
+export function mw(requiresRoles?: string | Array<string>) {
   return async (req: IReqUser, res: Response, next: NextFunction) => {
     // Extract Token
     const token = req.cookies['token'] || req.headers.authorization || null
