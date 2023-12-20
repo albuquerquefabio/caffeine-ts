@@ -1,6 +1,5 @@
 import User from '@api/user/user.model'
 import { Token } from '@lib/token'
-import { unauthorized, forbidden } from 'express-easy-helper'
 import { has } from 'role-calc'
 import type { IReqUser } from 'src/@types/request'
 
@@ -11,27 +10,27 @@ export function mw(requiresRoles?: string | Array<string>) {
     // Extract Token
     const token = req.cookies['token'] || req.headers.authorization || null
 
-    if (!token) return forbidden(res)
+    if (!token) return res.status(403).send('No token provided')
 
     try {
       // Verify Token with redis-jwt -> if you want to extract the data you should
       const session = await Token.verify(String(token), true)
-      if (!session) return unauthorized(res)
+      if (!session) return res.status(401).send('Invalid token')
       // Extract info user from MongoDB
       const _user = await User.findOne({ _id: session['id'] }).select('-social').exec()
       // If id's not equals
-      if (_user._id.toString() !== String(session['id'])) return forbidden(res)
+      if (_user._id.toString() !== String(session['id'])) return res.status(401).send('Invalid token')
       // User is enabled?
-      if (!_user.status) return unauthorized(res)
+      if (!_user.status) return res.status(401).send('User is disabled')
 
       // Verify Roles
-      if (requiresRoles) if (!has(requiresRoles, _user.roles)) return forbidden(res)
+      if (requiresRoles) if (!has(requiresRoles, _user.roles)) return res.status(401).send('Invalid token')
 
       req.user = Object.assign({ session }, _user['_doc'])
 
       next()
     } catch (err) {
-      return unauthorized(res, err)
+      return res.status(401).send('Invalid token')
     }
   }
 }

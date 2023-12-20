@@ -2,7 +2,7 @@ import { App } from '@tinyhttp/app'
 
 import type { Request, Response } from '@tinyhttp/app'
 
-import environment from '@env/index'
+import { environment } from '@lib/environment'
 import log from '@lib/logger'
 import { mongoConnect } from '@lib/mongoose'
 import { config } from '@lib/config'

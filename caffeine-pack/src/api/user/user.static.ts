@@ -1,7 +1,7 @@
 import { Schema } from 'mongoose'
-import { IUserDocument, IUserModel } from 'src/@types/user'
+import { IUserDocument } from 'src/@types/user'
 
-export default (User: Schema<IUserDocument, IUserModel, undefined, any>) => {
+export default (User: Schema<IUserDocument>) => {
   User.statics = {
     findByUsername(username: string) {
       return this.findOne({ username })

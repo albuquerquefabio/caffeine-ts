@@ -1,4 +1,4 @@
-import environment from '@env/index'
+import { environment } from '@lib/environment'
 import { redisDriver } from '@lib/redis-driver/index'
 import { jwt } from '@lib/jwt'
 import { IJWTToken } from 'src/@types/jwt'

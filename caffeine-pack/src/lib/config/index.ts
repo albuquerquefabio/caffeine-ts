@@ -5,7 +5,7 @@ import bodyParser from 'body-parser'
 
 import helmet from 'helmet'
 import { cors } from '@tinyhttp/cors'
-import environment from '@env/index'
+import { environment } from '@lib/environment'
 import cookieParser from 'cookie-parser'
 
 export async function config(app: App): Promise<void> {

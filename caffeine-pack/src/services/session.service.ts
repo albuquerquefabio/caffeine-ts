@@ -1,7 +1,6 @@
 import { Token } from '@lib/token'
 import { IDataSession } from 'src/@types/jwt'
-import environment from '@env/index'
-import { error } from 'express-easy-helper'
+import { environment } from '@lib/environment'
 import { calc, time } from 'role-calc'
 import type { Request, Response } from '@tinyhttp/app'
 import type { IUserDocument } from 'src/@types/user'
@@ -10,7 +9,7 @@ import ms from 'ms'
 
 export async function initialize(user: IUserDocument, req: Request, res: Response) {
   try {
-    if (!user) return error(res, { message: 'Something wrong, please try again.' })
+    if (!user) return res.status(500).send({ message: 'Something wrong, please try again.' })
 
     // calculate ttl by user, default takes the role with the longest 'max'
     const ttl = +ms(calc(time(environment.roles, user.roles), 'max')) / 1000
@@ -38,6 +37,6 @@ export async function initialize(user: IUserDocument, req: Request, res: Respons
     if (user.provider === 'local') return res.send({ token })
   } catch (err) {
     log.error('session error', err)
-    return error(res, { message: err })
+    return res.status(500).send({ message: String(err) })
   }
 }

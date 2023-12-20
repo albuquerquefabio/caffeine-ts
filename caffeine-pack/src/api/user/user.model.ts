@@ -38,7 +38,7 @@ const UserSchema: Schema<IUserDocument> = new Schema(
       default: 'local'
     },
     roles: {
-      type: Array,
+      type: [String],
       default: ['user']
     },
     status: {
