@@ -27,7 +27,9 @@ Install and run MongoDB@5.0 and Redis@6.2.4 as Docker container
 ```sh
 pnpm start # start dev mode
 pnpm build # compile production version
+pnpm build:docker # compile production version for docker
 pnpm prod # run as production
 pnpm prod:cluster # run as production in cluster
+pnpm prod:docker # run as production in docker
 pnpm stop # stop all services
 ```
