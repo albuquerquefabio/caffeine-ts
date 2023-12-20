@@ -4,7 +4,7 @@ Minimal [TypeScript](https://www.typescriptlang.org/) setup for [tinyHttp](https
 
 ## Setup
 
-Node requirement v14.x.x or latest one.\*
+Node requirement v16.x.x or latest one.\*
 
 ```sh
 npm i -g pnpm # install pnpm cli
