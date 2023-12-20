@@ -31,5 +31,7 @@ pnpm build:docker # compile production version for docker
 pnpm prod # run as production
 pnpm prod:cluster # run as production in cluster
 pnpm prod:docker # run as production in docker
+pnpm lint # lint code
+pnpm lint:fix # lint code and fix
 pnpm stop # stop all services
 ```

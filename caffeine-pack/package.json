@@ -16,7 +16,9 @@
     "prod:cluster": "pnpm build && pnpm stop && pm2 start pm2.cluster.config.js --env production",
     "prod:docker": "docker compose -f docker-compose.production.yml up -d --build",
     "update": "pm2 update",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint src --ext .js,.ts",
+    "lint:fix": "eslint src --fix --ext .js,.ts"
   },
   "husky": {
     "hooks": {
