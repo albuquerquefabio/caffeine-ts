@@ -1,6 +1,8 @@
 import { socketIO } from '@lib/socketIO'
 import Thing from '@api/thing/thing.model'
 import type { Request, Response } from '@tinyhttp/app'
+import { agendaSchedule } from '@lib/agenda'
+import log from '@lib/logger'
 
 export const controller = {
   create: () => async (req: Request, res: Response) => {
@@ -11,6 +13,12 @@ export const controller = {
       const stmt = await Thing.create({ name, info })
       // Socket Emitter
       socketIO.io.emit('things:add', stmt)
+      // schedule job 30 seconds later
+      log.info('Scheduling job at:', new Date().toISOString())
+      await agendaSchedule(new Date(Date.now() + 10000), 'job', {
+        job: 'sendLog',
+        content: `Thing ${name} created`
+      })
       res.send(stmt)
     } catch (error) {
       res.status(500).send(error)
