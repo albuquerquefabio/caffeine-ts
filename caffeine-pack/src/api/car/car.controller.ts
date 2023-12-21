@@ -1,4 +1,4 @@
-import { io } from '@lib/socketIO'
+import { socketIO } from '@lib/socketIO'
 import Car from '@api/car/car.model'
 import type { Request, Response } from '@tinyhttp/app'
 
@@ -10,7 +10,7 @@ export const controller = {
       // Create Document at Car collection
       const stmt = await Car.create({ brand, model, year })
       // Socket Emitter
-      io.emit('cars:add', stmt)
+      socketIO.io.emit('cars:add', stmt)
       res.send(stmt)
     } catch (error) {
       res.status(500).send(error)
@@ -56,7 +56,7 @@ export const controller = {
           $set: { ...obj }
         }
       ).exec()
-      io.emit('cars:update', { _id: id, ...obj, stmt })
+      socketIO.io.emit('cars:update', { _id: id, ...obj, stmt })
       res.send(stmt)
     } catch (error) {
       res.status(500).send(error)
@@ -66,7 +66,7 @@ export const controller = {
     try {
       const { id } = req.params
       const stmt = await Car.deleteOne({ _id: id }).exec()
-      io.emit('cars:delete', { _id: id, stmt })
+      socketIO.io.emit('cars:delete', { _id: id, stmt })
       res.send(stmt)
     } catch (error) {
       res.status(500).send(error)
