@@ -37,6 +37,7 @@ importers:
       body-parser:
         specifier: ^1.20.2
         version: 1.20.2
+
       cookie-parser:
         specifier: ^1.4.6
         version: 1.4.6
@@ -52,6 +53,7 @@ importers:
       mongoose:
         specifier: ^7.6.7
         version: 7.6.7
+
       mongoose-paginate:
         specifier: ^5.0.3
         version: 5.0.3
@@ -119,18 +121,22 @@ importers:
       '@types/node':
         specifier: ^15.14.9
         version: 15.14.9
+
       '@types/redis':
         specifier: ^2.8.32
         version: 2.8.32
+
       '@types/util.promisify':
         specifier: ^1.0.8
         version: 1.0.8
       '@typescript-eslint/eslint-plugin':
         specifier: ^4.33.0
+
         version: 4.33.0(@typescript-eslint/parser@4.33.0)(eslint@7.32.0)(typescript@4.4.4)
       '@typescript-eslint/parser':
         specifier: ^4.33.0
         version: 4.33.0(eslint@7.32.0)(typescript@4.4.4)
+
       babel-plugin-module-resolver:
         specifier: ^4.1.0
         version: 4.1.0
@@ -158,15 +164,18 @@ importers:
       jest:
         specifier: ^27.5.1
         version: 27.5.1(ts-node@9.1.1)
+
       nodemon:
         specifier: ^3.0.2
         version: 3.0.2
+
       prettier-eslint:
         specifier: ^12.0.0
         version: 12.0.0
       ts-jest:
         specifier: ^27.1.5
         version: 27.1.5(@babel/core@7.23.6)(@types/jest@26.0.24)(jest@27.5.1)(typescript@4.4.4)
+
       ts-node:
         specifier: ^9.1.1
         version: 9.1.1(typescript@4.4.4)
@@ -179,6 +188,7 @@ importers:
       typescript:
         specifier: ^4.4.4
         version: 4.4.4
+
 
 packages:
   /@aashutoshrathi/word-wrap@1.2.6:
