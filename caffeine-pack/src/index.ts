@@ -10,6 +10,7 @@ import { redisConnect } from '@lib/redis'
 import { socketIO } from '@lib/socketIO'
 import routes from '@lib/routes'
 import startRabbitMQWorkers from '@lib/workers'
+import { agenda } from '@lib/agenda'
 
 const app = new App({
   noMatchHandler: (_req: Request, res: Response): void => {
@@ -31,6 +32,8 @@ const app = new App({
 
   await config(app)
   await mongoConnect()
+  await agenda.start()
+
   const redisConn = await redisConnect()
   await socketIO.socketConnect(redisConn)
   await startRabbitMQWorkers()
