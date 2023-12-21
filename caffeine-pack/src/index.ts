@@ -9,6 +9,7 @@ import { config } from '@lib/config'
 import { redisConnect } from '@lib/redis'
 import { socketIO } from '@lib/socketIO'
 import routes from '@lib/routes'
+import startRabbitMQWorkers from '@lib/workers'
 
 const app = new App({
   noMatchHandler: (_req: Request, res: Response): void => {
@@ -32,6 +33,7 @@ const app = new App({
   await mongoConnect()
   const redisConn = await redisConnect()
   await socketIO.socketConnect(redisConn)
+  await startRabbitMQWorkers()
 
   await routes(app)
 

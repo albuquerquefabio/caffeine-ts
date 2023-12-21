@@ -31,13 +31,15 @@ importers:
       '@tinyhttp/cors':
         specifier: ^1.3.2
         version: 1.3.2
+      amqplib:
+        specifier: ^0.10.3
+        version: 0.10.3
       bcrypt:
         specifier: ^5.1.1
         version: 5.1.1
       body-parser:
         specifier: ^1.20.2
         version: 1.20.2
-
       cookie-parser:
         specifier: ^1.4.6
         version: 1.4.6
@@ -53,7 +55,6 @@ importers:
       mongoose:
         specifier: ^7.6.7
         version: 7.6.7
-
       mongoose-paginate:
         specifier: ^5.0.3
         version: 5.0.3
@@ -97,6 +98,9 @@ importers:
       '@babel/runtime':
         specifier: ^7.23.6
         version: 7.23.6
+      '@types/amqplib':
+        specifier: ^0.10.4
+        version: 0.10.4
       '@types/bcrypt':
         specifier: ^5.0.2
         version: 5.0.2
@@ -121,22 +125,18 @@ importers:
       '@types/node':
         specifier: ^15.14.9
         version: 15.14.9
-
       '@types/redis':
         specifier: ^2.8.32
         version: 2.8.32
-
       '@types/util.promisify':
         specifier: ^1.0.8
         version: 1.0.8
       '@typescript-eslint/eslint-plugin':
         specifier: ^4.33.0
-
         version: 4.33.0(@typescript-eslint/parser@4.33.0)(eslint@7.32.0)(typescript@4.4.4)
       '@typescript-eslint/parser':
         specifier: ^4.33.0
         version: 4.33.0(eslint@7.32.0)(typescript@4.4.4)
-
       babel-plugin-module-resolver:
         specifier: ^4.1.0
         version: 4.1.0
@@ -164,18 +164,15 @@ importers:
       jest:
         specifier: ^27.5.1
         version: 27.5.1(ts-node@9.1.1)
-
       nodemon:
         specifier: ^3.0.2
         version: 3.0.2
-
       prettier-eslint:
         specifier: ^12.0.0
         version: 12.0.0
       ts-jest:
         specifier: ^27.1.5
         version: 27.1.5(@babel/core@7.23.6)(@types/jest@26.0.24)(jest@27.5.1)(typescript@4.4.4)
-
       ts-node:
         specifier: ^9.1.1
         version: 9.1.1(typescript@4.4.4)
@@ -189,13 +186,24 @@ importers:
         specifier: ^4.4.4
         version: 4.4.4
 
-
 packages:
   /@aashutoshrathi/word-wrap@1.2.6:
     resolution:
       { integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA== }
     engines: { node: '>=0.10.0' }
     dev: true
+
+  /@acuminous/bitsyntax@0.1.2:
+    resolution:
+      { integrity: sha512-29lUK80d1muEQqiUsSo+3A0yP6CdspgC95EnKBMi22Xlwt79i/En4Vr67+cXhU+cZjbti3TgGGC5wy1stIywVQ== }
+    engines: { node: '>=0.8' }
+    dependencies:
+      buffer-more-ints: 1.0.0
+      debug: 4.3.4(supports-color@5.5.0)
+      safe-buffer: 5.1.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
 
   /@ampproject/remapping@2.2.1:
     resolution:
@@ -3359,6 +3367,13 @@ packages:
       { integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA== }
     dev: false
 
+  /@types/amqplib@0.10.4:
+    resolution:
+      { integrity: sha512-Y5Sqquh/LqDxSgxYaAAFNM0M7GyONtSDCcFMJk+DQwYEjibPyW6y+Yu9H9omdkKc3epyXULmFN3GTaeBHhn2Hg== }
+    dependencies:
+      '@types/node': 15.14.9
+    dev: true
+
   /@types/babel__core@7.20.5:
     resolution:
       { integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA== }
@@ -3873,6 +3888,19 @@ packages:
   /amp@0.3.1:
     resolution:
       { integrity: sha512-OwIuC4yZaRogHKiuU5WlMR5Xk/jAcpPtawWL05Gj8Lvm2F6mwoJt4O/bHI+DHwG79vWd+8OFYM4/BzYqyRd3qw== }
+    dev: false
+
+  /amqplib@0.10.3:
+    resolution:
+      { integrity: sha512-UHmuSa7n8vVW/a5HGh2nFPqAEr8+cD4dEZ6u9GjP91nHfr1a54RyAKyra7Sb5NH7NBKOUlyQSMXIp0qAixKexw== }
+    engines: { node: '>=10' }
+    dependencies:
+      '@acuminous/bitsyntax': 0.1.2
+      buffer-more-ints: 1.0.0
+      readable-stream: 1.1.14
+      url-parse: 1.5.10
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /ansi-colors@4.1.3:
@@ -4401,6 +4429,11 @@ packages:
     resolution:
       { integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ== }
 
+  /buffer-more-ints@1.0.0:
+    resolution:
+      { integrity: sha512-EMetuGFz5SLsT0QTnXzINh4Ksr+oo4i+UGTXEshiGCQWnsgSs7ZhJ8fzlwQ+OzEMs0MpDAMr1hxnblp5a4vcHg== }
+    dev: false
+
   /buffer@5.7.1:
     resolution:
       { integrity: sha512-EHcyIPBQ4BSGlvjB16k5KgAJ27CIsHY/2JBmCRReo48y9rQ3MaUzWX3KVlBa4U7MyX02HdVj0K7C3WaB3ju7FQ== }
@@ -4700,6 +4733,11 @@ packages:
       { integrity: sha512-aDdvlDder8QmY91H88GzNi9EtQi2TjvQhpCX6B1v/dAZHU1AuLgHvRh54RiOerpEhEW46Tkf+vgAViB/CWC0ag== }
     requiresBuild: true
     dev: true
+
+  /core-util-is@1.0.3:
+    resolution:
+      { integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ== }
+    dev: false
 
   /cors@2.8.5:
     resolution:
@@ -6380,6 +6418,11 @@ packages:
     dependencies:
       call-bind: 1.0.5
     dev: true
+
+  /isarray@0.0.1:
+    resolution:
+      { integrity: sha512-D2S+3GLxWH+uhrNEcoh/fnmYeP8E8/zHl644d/jdA0g2uyXvy3sb0qxotE+ne0LtccHknQzWwZEzhak7oJ0COQ== }
+    dev: false
 
   /isarray@2.0.5:
     resolution:
@@ -8308,7 +8351,6 @@ packages:
   /querystringify@2.2.0:
     resolution:
       { integrity: sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ== }
-    dev: true
 
   /queue-microtask@1.2.3:
     resolution:
@@ -8343,6 +8385,16 @@ packages:
     engines: { node: '>=0.8' }
     dependencies:
       mute-stream: 0.0.8
+    dev: false
+
+  /readable-stream@1.1.14:
+    resolution:
+      { integrity: sha512-+MeVjFf4L44XUkhM1eYbD8fyEsxcV81pqMSR5gblfcLCHfZvbrqy4/qYHE+/R5HoBUT11WV5O08Cr1n3YXkWVQ== }
+    dependencies:
+      core-util-is: 1.0.3
+      inherits: 2.0.4
+      isarray: 0.0.1
+      string_decoder: 0.10.31
     dev: false
 
   /readable-stream@3.6.2:
@@ -8493,7 +8545,6 @@ packages:
   /requires-port@1.0.0:
     resolution:
       { integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ== }
-    dev: true
 
   /reselect@4.1.8:
     resolution:
@@ -8579,6 +8630,11 @@ packages:
       has-symbols: 1.0.3
       isarray: 2.0.5
     dev: true
+
+  /safe-buffer@5.1.2:
+    resolution:
+      { integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g== }
+    dev: false
 
   /safe-buffer@5.2.1:
     resolution:
@@ -8912,6 +8968,11 @@ packages:
       define-properties: 1.2.1
       es-abstract: 1.22.3
     dev: true
+
+  /string_decoder@0.10.31:
+    resolution:
+      { integrity: sha512-ev2QzSzWPYmy9GuqfIVildA4OdcGLeFZQrq5ys6RtiuF+RQQiZWr8TZNyAcuVXyQRYfEO+MsoB/1BuQVhOJuoQ== }
+    dev: false
 
   /string_decoder@1.3.0:
     resolution:
@@ -9449,7 +9510,6 @@ packages:
     dependencies:
       querystringify: 2.2.0
       requires-port: 1.0.0
-    dev: true
 
   /util-deprecate@1.0.2:
     resolution:
