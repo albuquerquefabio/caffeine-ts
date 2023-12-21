@@ -1,4 +1,5 @@
 import User from '@api/user/user.model'
+import { sendQueue } from '@lib/rabbitmq'
 import type { Request, Response } from '@tinyhttp/app'
 import type { IUserDocument } from 'src/@types/user'
 
@@ -8,13 +9,14 @@ export const controller = {
 
     try {
       const user = await User.create({
-        username: username.replace(/' '/g, ''),
+        username: username.replace(/\s/g, ''),
         name,
         lastname,
-        email,
+        email: email.replace(/\s/g, ''),
         password,
         provider
       })
+      await sendQueue('notification', { userId: user._id })
       res.send(user)
     } catch (error) {
       res.status(500).send(error)
