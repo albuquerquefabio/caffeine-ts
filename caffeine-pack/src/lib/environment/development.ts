@@ -88,6 +88,13 @@ export default {
       enabled: true
     }
   },
+  rabbitmq: {
+    host: process.env.RABBITMQ_HOST || 'localhost',
+    port: process.env.RABBITMQ_PORT || 5672,
+    user: process.env.RABBITMQ_USER || 'guest',
+    pass: process.env.RABBITMQ_PASS || 'guest',
+    portCluster: process.env.RABBITMQ_PORT_CLUSTER || 25672
+  },
   // globals
   mode: process.env.NODE_ENV || 'development', // mode
   name: APP_NAME, // name
