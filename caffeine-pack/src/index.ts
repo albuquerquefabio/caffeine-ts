@@ -7,7 +7,7 @@ import log from '@lib/logger'
 import { mongoConnect } from '@lib/mongoose'
 import { config } from '@lib/config'
 import { redisConnect } from '@lib/redis'
-import { socketConnect } from '@lib/socketIO'
+import { socketIO } from '@lib/socketIO'
 import routes from '@lib/routes'
 
 const app = new App({
@@ -30,7 +30,8 @@ const app = new App({
 
   await config(app)
   await mongoConnect()
-  await socketConnect(await redisConnect())
+  const redisConn = await redisConnect()
+  await socketIO.socketConnect(redisConn)
 
   await routes(app)
 
