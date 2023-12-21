@@ -1,0 +1,7 @@
+{
+  "presets": [["@babel/preset-env", { "loose": true }], "@babel/preset-typescript"],
+  "plugins": ["@babel/plugin-transform-runtime"],
+  "compact": true,
+  "comments": false,
+  "ignore": ["**/*.test.js", "**/*.spec.js", "**/*.test.ts", "**/*.spec.ts", "node_modules"]
+}
